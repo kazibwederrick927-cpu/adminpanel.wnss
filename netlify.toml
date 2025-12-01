@@ -1,9 +1,30 @@
+# ============================
+#   NEXT.JS 14 ADMIN PANEL  
+#   NETLIFY DEPLOY CONFIG  
+# ============================
+
 [build]
   command = "npm run build"
-  publish = "out"
+  # Do NOT set publish. Next plugin manages that.
 
+# Use Node 20 (required by some dependencies)
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Enable Next.js support (SSR, ISR, routing)
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[build.environment]
-  NODE_VERSION = "18"
+# (Optional but recommended) Force edge functions for faster SSR
+[[edge_functions]]
+  path = "/books/*"
+  function = "next-ssr"
+
+[[edge_functions]]
+  path = "/dashboard"
+  function = "next-ssr"
+
+[[edge_functions]]
+  path = "/"
+  function = "next-ssr"
