@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+export const dynamic = "force-dynamic"
+
+import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
@@ -168,7 +170,7 @@ export default function Login() {
           </div>
 
           <div className="text-xs text-gray-500 text-center">
-            <p>Note: After signing up, you'll need to be manually assigned admin role in the database.</p>
+            <p>Note: After signing up, you&apos;ll need to be manually assigned admin role in the database.</p>
           </div>
         </div>
       </div>

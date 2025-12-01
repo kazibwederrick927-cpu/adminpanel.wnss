@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = "force-dynamic"
+
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
@@ -175,7 +177,7 @@ export default function EditBook() {
 
         // For updates, we need to modify the upload function or create a new one
         // For now, let's update metadata and handle files separately
-        toast.info('File upload for updates requires additional implementation')
+        toast.success('File upload for updates requires additional implementation')
       }
 
       // Update book metadata

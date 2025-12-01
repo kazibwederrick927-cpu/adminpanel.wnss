@@ -4,6 +4,8 @@ import '../styles/globals.css'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider } from '@/components/AuthProvider'
 
+export const dynamic = "force-dynamic"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

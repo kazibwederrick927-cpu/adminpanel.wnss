@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = "force-dynamic"
+
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { Database } from '@/lib/supabase'
@@ -105,8 +107,8 @@ export default function Dashboard() {
     }
   }
 
-  const subjects = [...new Set(books.map(book => book.subject).filter(Boolean))]
-  const levels = [...new Set(books.map(book => book.level).filter(Boolean))]
+  const subjects = [...new Set(books.map(book => book.subject).filter((v): v is string => Boolean(v)))]
+  const levels = [...new Set(books.map(book => book.level).filter((v): v is string => Boolean(v)))]
 
   return (
     <Layout>
@@ -187,7 +189,7 @@ export default function Dashboard() {
             >
               <option value="">All Levels</option>
               {levels.map(level => (
-                <option key={level} value={level}>{level}</option>
+                <option key={String(level)} value={String(level)}>{String(level)}</option>
               ))}
             </select>
             <select
@@ -197,7 +199,7 @@ export default function Dashboard() {
             >
               <option value="">All Subjects</option>
               {subjects.map(subject => (
-                <option key={subject} value={subject}>{subject}</option>
+                <option key={String(subject)} value={String(subject)}>{String(subject)}</option>
               ))}
             </select>
           </div>

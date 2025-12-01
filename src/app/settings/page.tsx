@@ -1,12 +1,14 @@
 'use client'
 
+export const dynamic = "force-dynamic"
+
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import Layout from '@/components/Layout'
 import { Database } from '@/lib/supabase'
 import { useAuth } from '@/components/AuthProvider'
 import toast from 'react-hot-toast'
-import { UserPlus, Users, Shield, Settings, LogOut, RefreshCw } from 'lucide-react'
+import { UserPlus, Users, Shield, Settings as SettingsIcon, LogOut, RefreshCw, User } from 'lucide-react'
 
 type Profile = Database['public']['Tables']['profiles']['Row']
 
@@ -247,14 +249,14 @@ export default function Settings() {
         {/* System Settings */}
         <div className="bg-gray-900 p-6 rounded-lg">
           <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
-            <Settings className="h-5 w-5 mr-2" />
+            <SettingsIcon className="h-5 w-5 mr-2" />
             System Settings
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-gray-800 rounded">
               <h3 className="text-white font-medium mb-2">Storage Information</h3>
               <p className="text-sm text-gray-400">
-                Books are stored in Supabase Storage under the 'books' bucket.
+                Books are stored in Supabase Storage under the &apos;books&apos; bucket.
               </p>
               <p className="text-sm text-gray-400 mt-1">
                 Maximum file size: 100MB
