@@ -10,6 +10,7 @@ export const createServiceClient = () => {
   const supabaseUrl = process.env.SUPABASE_URL!
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
   
+  const { createClient } = require('@supabase/supabase-js')
   return createClient(supabaseUrl, supabaseServiceKey, {
     auth: {
       autoRefreshToken: false,
